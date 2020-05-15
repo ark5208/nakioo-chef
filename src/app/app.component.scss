@@ -1,0 +1,81 @@
+bot {
+    background-color: #1E87E6;
+    color: #ffffff;
+}
+
+.botonesder {
+    float: right;
+    margin: 3px;
+}
+
+.botonesizq {
+    float: left;
+    margin: 3px;
+}
+
+.uploadfilecontainer {
+    background-repeat: no-repeat;
+    background-size: 75px;
+    background-position: center;
+    height: 13vh;
+    width: 45vw;
+    margin: 10px auto;
+    border: 2px dashed #270942;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.file {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.img {
+    height: 8vh;
+}
+
+.center {
+    text-align: center;
+}
+
+p {
+    color: #575757;
+    font-family: 'Roboto', serif;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 40px;
+    margin: 0 30px 40px;
+    padding-top: 20px;
+    text-align: center;
+    text-shadow: #b9b9b9 -1px -1px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: #1E87E6 !important;
+}
+
+::ng-deep .mat-step {
+    background-color: #1E87E6 !important;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: #1E87E6;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: #1E87E6 !important;
+}
+
+.loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,59 @@
+
+<mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step>
+        <form>
+            <ng-template class="centrado" matStepLabel>Idioma</ng-template>
+            <div fxLayout="column" fxLayoutAlign="space-between stretch" style="height:33vh">
+                <div style="justify-content: center">
+                    <p>
+                        Seleccione los idiomas que quiere incluir en su carta
+                    </p>
+                    <img id="es" src="assets/sp.svg" alt="Español" height="30%" width="20%">
+                    <img id="uk" src="assets/uk.svg" alt="Inglés" height="30%" width="20%">
+                    <img id="de" src="assets/de.svg" alt="Alemán" height="30%" width="20%">
+                    <img id="fr" src="assets/fr.svg" alt="Francés" height="30%" width="20%">
+                    <img id="it" src="assets/it.svg" alt="Italiano" height="30%" width="20%">
+                    <div class="es"></div>
+                </div>
+                <div>
+                    <button class="botonesder bot" mat-raised-button matStepperNext>Siguiente</button>
+                </div>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Introduce el archivo</ng-template>
+        
+        <div fxLayout="row" fxLayoutAlign="space-between stretch" style="padding: 4px">
+            <button mat-raised-button class="bot" matStepperPrevious>Atras</button>
+            <button [disabled]="activo" mat-raised-button class="bot" (click)="subir()" matStepperNext>Siguiente</button>
+        </div>
+    </mat-step>
+    <mat-step>
+        <div fxLayout="column" fxLayoutAlign="space-between stretch" style="height: 28vh;">
+            <ng-template matStepLabel>Subiendo</ng-template>
+            <div *ngIf="!isError">
+                <mat-progress-bar mode="determinate" value="$progress | async"></mat-progress-bar>
+                <div style="text-align: end">
+                    Completado: {{$progress | async}}%
+                </div>
+                <p>
+                    Se han procesado los calendarios de {{$body | async}} empleados
+                </p>
+            </div>
+            <div *ngIf="isError">
+                <p>
+                    Se ha producido un error, ¿quieres reintentarlo?
+
+                </p>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end stretch" style="padding: 4px">
+                <button *ngIf="isError" mat-raised-button class="bot" (click)="subir(true)" matStepperNext>Reintentar</button>
+                <button mat-raised-button class="bot" (click)="onNoClick()" matStepperNext>Finalizar</button>
+            </div>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
+<div class="loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner></mat-spinner>
+</div>
